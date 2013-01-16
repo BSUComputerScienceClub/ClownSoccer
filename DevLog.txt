@@ -1,10 +1,16 @@
 Tasks:
 Code Rules of Soccer
 Control Scheme
-Drawing Graphics and Physics
+Drawing Graphics and Physics 
 
 Ideals:
 fast game/fast action
 rich with gameplay
 combat arcade about soccer
 fun > realism
+
+Current Work Log (update as needed)
+Matthew Ahrens - currently working on character.java  1/16/13 1:40pm through 5:00pm
+Mat Peltier -
+Chris Gracia -
+Kyle Zemke -
