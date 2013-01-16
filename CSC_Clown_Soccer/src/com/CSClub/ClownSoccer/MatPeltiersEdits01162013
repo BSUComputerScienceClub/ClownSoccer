@@ -1,0 +1,111 @@
+/*
+	 * Mathew Peltier (dv_clone) started editing here (for the glory!)
+	 */
+	//There are fast clowns killer clowns stealthy clowns and flower clowns. Green and orange
+	//clowns are for the different teams, can make the wigs a different hair color if necessary.
+	/*
+	 * This class just has the basic stats that the clowns will use and I'm making specialized
+	 * classes with augmented abilities for fast clowns killer clowns stealthy clowns and flower clowns.
+	 */
+	private int [] orange_clowns=new int [5];
+	private int [] green_clowns=new int [5];
+	private int clown_speed=5;
+	private int clown_passballspeed=5;
+	private int clown_kickinggoalspeed=5;
+	private int clown_attack=5;
+	private boolean clown_stunned=false;
+	private boolean clown_invisable=false;
+	//It's gonna take 4 clown attacks in order to destroy a clown. (which will be replaced within a minute of game time.
+	int clown1_hitpoints=20;
+	int clown2_hitpoints=20;
+	/*
+	 * I'm thinking for each clown abilty you would have to press
+	 * a button to activate an ability it would have 30 secounds of activation and then
+	 * you have to wait a minute before it refreshes.
+	 */
+	public void fastclownclass()
+	{
+	int clown_fastclowntimewait=30; //secounds
+	for(clown_fastclowntimewait=30; clown_fastclowntimewait>0; clown_fastclowntimewait-- )
+	{
+	clown_speed=10;
+	clown_passballspeed=10;
+	clown_kickinggoalspeed=10;
+	}
+	//Then reverts back to normal stats
+	clown_speed=5;
+	clown_passballspeed=5;
+	clown_kickinggoalspeed=5;
+	}
+	public void killerclownclass()
+	{
+	int clown_killerclowntimewait=30;
+	for(clown_killerclowntimewait=30; clown_killerclowntimewait>0; clown_killerclowntimewait-- )
+	{
+	clown_attack=clown1_hitpoints;
+	}
+	//Then reverts back to normal stats
+	clown_attack=5;
+	}
+	public void stealthyclownclass()
+	{
+	int clown_stealthyclowntimewait=30; //secounds
+	for(clown_stealthyclowntimewait=30; clown_stealthyclowntimewait>0; clown_stealthyclowntimewait-- )
+	{
+	clown_invisable=true;
+	}
+	//then reverts back to normal stats
+	clown_invisable=false;
+	}
+	public void flowerclownclass()
+	{
+	int clown_flowerclowntimewait=30; //secounds
+	for(clown_flowerclowntimewait=30; clown_flowerclowntimewait>0; clown_flowerclowntimewait-- )
+	{
+	clown_stunned=true;
+	}
+	clown_stunned=false;
+	}
+	public void passingball()
+	{
+	
+	}
+	public void kickinggoal()
+	{
+		
+	}
+	public void clownsattackingeachother()
+	{
+		Random initative= new Random();
+		int initativeroll=initative.nextInt(10)+1;
+		int initativeroll2=initative.nextInt(10)+1;
+		System.out.println("Here is the first initative"+initativeroll);
+		System.out.println("Here is the secound initative"+initativeroll2);
+		if(initativeroll>initativeroll2)
+		{
+		System.out.println("Clown one gets to attack first");
+		clown2_hitpoints=clown2_hitpoints-clown_attack;
+		}
+		if(initativeroll2>initativeroll)
+		{
+		System.out.println("Clown two gets to attack first");
+		clown1_hitpoints=clown1_hitpoints-clown_attack;
+		}
+		if (initativeroll==initativeroll2)
+		{
+		System.out.println("Both clowns get to attack at the same time");
+		clown2_hitpoints=clown2_hitpoints-clown_attack;
+		clown1_hitpoints=clown1_hitpoints-clown_attack;
+		}
+		if(clown1_hitpoints<=0)
+		{
+		System.out.println("Clown1 is dead");
+		}
+		if(clown2_hitpoints<=0)
+		{
+		System.out.println("Clown2 is dead");
+		}
+	}
+	/*
+	 * Mathew Peltier ended editing here
+	 */

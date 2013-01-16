@@ -9,12 +9,15 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-
+import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.math.*;
 public class ClownSoccer implements ApplicationListener {
 	private OrthographicCamera camera;
 	private SpriteBatch batch;
 	private Texture texture;
 	private Sprite sprite;
+	private World currentWorld;
+	private final Vector2 GRAVITY = new Vector2(0,0);
 	
 	@Override
 	public void create() {		
@@ -23,9 +26,10 @@ public class ClownSoccer implements ApplicationListener {
 		
 		camera = new OrthographicCamera(1, h/w);
 		batch = new SpriteBatch();
+		currentWorld = new World(GRAVITY,true);
 		
-		texture = new Texture(Gdx.files.internal("data/libgdx.png"));
-		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		//texture = new Texture(Gdx.files.internal("data/libgdx.png"));
+		//texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		
 		TextureRegion region = new TextureRegion(texture, 0, 0, 512, 275);
 		
@@ -63,4 +67,5 @@ public class ClownSoccer implements ApplicationListener {
 	@Override
 	public void resume() {
 	}
+	
 }
